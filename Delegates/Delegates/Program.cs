@@ -1,12 +1,24 @@
-﻿namespace Delegates
+﻿using System;
+
+namespace Delegates
 {
     class Program
     {
         static void Main()
         {
-            var photoProcess = new PhotoProcessor();
+            var processor = new PhotoProcessor();
+            var filters = new PhotoFilters();
+            Action<Photo> filterHandler = filters.ApplyBrightness;
+            filterHandler += filters.ApplyContrast;
+            filterHandler += RemoveRedEyeFilter;
 
-            photoProcess.Process("Path");
+            processor.Process("photo.jpg", filterHandler);
+        }
+
+        static void RemoveRedEyeFilter(Photo photo)
+        {
+            //Apply Brightness Filter
+            Console.WriteLine("Remove RedEye Filter Applied");
         }
     }
 }
