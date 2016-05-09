@@ -1,8 +1,7 @@
 ﻿namespace Generics
 {
-    class Book
+    public class Book : Product
     {
-        public int Price { get; set; }
-        public string Title { get; set; }
+        public string Isbn { get; set; }
     }
 }
