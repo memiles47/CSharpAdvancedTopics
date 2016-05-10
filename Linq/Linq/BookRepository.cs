@@ -4,7 +4,7 @@ namespace Linq
 {
     public class BookRepository
     {
-        public IEnumerable<Book> GetBooks()
+        public List<Book> GetBooks()
         {
             return new List<Book>
             {
